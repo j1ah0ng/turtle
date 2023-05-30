@@ -28,8 +28,8 @@ dfu: ${PROJ}.dfu
 	dfu-util -a 0 -D $<
 
 
-%.json: %.v
-	yosys -p "read_verilog $<; synth_ecp5 -json $@"
+%.json: %.sv
+	yosys -p "plugin -i systemverilog" -p "read_systemverilog $<; synth_ecp5 -json $@"
 
 %_out.config: %.json
 	nextpnr-ecp5 --json $< --textcfg $@ --85k --package CSFBGA285 --lpf ..$(PATH_SEP)orangecrab_${VERSION}.pcf

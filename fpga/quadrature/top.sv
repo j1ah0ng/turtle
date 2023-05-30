@@ -3,7 +3,7 @@
 module top (
     input clk48,
     output gpio_0,
-    output gpio_1,
+    output gpio_1
 );
 
     reg [23:0] counter = 0;

@@ -1,4 +1,4 @@
-`default nettype none
+`default_nettype none
 
 module clock_divider #(parameter N = 'd4) (
     input wire clk_in,

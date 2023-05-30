@@ -1,0 +1,36 @@
+********************************************
+*  SURELOG SystemVerilog  Compiler/Linter  *
+********************************************
+
+Copyright (c) 2017-2023 Alain Dargelas,
+http://www.apache.org/licenses/LICENSE-2.0
+
+VERSION: 1.59
+BUILT  : May 29 2023
+DATE   : 2023-05-29.17:37:37
+COMMAND: top.sv -DYOSYS=1 -DSYNTHESIS=1
+
+[INF:CM0023] Creating log file /Users/j1ah0ng/turtle/fpga/quadrature/slpp_all/surelog.log.
+
+[WRN:PA0205] /Users/j1ah0ng/turtle/fpga/quadrature/top.sv:3:1: No timescale set for "top".
+
+[NTE:CP0309] /Users/j1ah0ng/turtle/fpga/quadrature/top.sv:5:12: Implicit port type (wire) for "gpio_0",
+there are 1 more instances of this message.
+
+[NTE:EL0503] /Users/j1ah0ng/turtle/fpga/quadrature/top.sv:3:1: Top level module "work@top".
+
+[NTE:EL0508] Nb Top level modules: 1.
+
+[NTE:EL0509] Max instance depth: 1.
+
+[NTE:EL0510] Nb instances: 1.
+
+[NTE:EL0511] Nb leaf instances: 0.
+
+[INF:UH0706] Creating UHDM Model...
+
+[  FATAL] : 0
+[ SYNTAX] : 0
+[  ERROR] : 0
+[WARNING] : 1
+[   NOTE] : 6
