@@ -3,7 +3,7 @@
 module clock_divider #(parameter N = 'd4) (
     input wire clk_in,
     input wire rst,
-    output wire clk_out,
+    output wire clk_out
 );
 
     reg [N - 1:0] counter;
