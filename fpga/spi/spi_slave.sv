@@ -1,52 +1,49 @@
-module spi_master (
-    input wire clk,
-    input wire rstn,
+`default_nettype none
 
+module spi_slave (
     // TX 
-    input reg [7:0] tx_data,
+    input [7:0] tx_data,
     input wire tx_valid,
     output wire tx_done,
 
     // RX
-    output reg [7:0] rx_data,
+    output [7:0] rx_data,
     output wire rx_valid,
 
     // SPI interface
-    output wire sclk,
-    output reg mosi,
-    input reg miso,
-    output reg ss
-);
+    input wire sclk,
+    input wire mosi,
+    output wire miso,
+    input wire ss,
+)
 
 // sample on rising edge of clock, shift on falling edge.
 
-`define IDLE  = 4'd00,
-`define BIT_0 = 4'd01,
-`define BIT_1 = 4'd02,
-`define BIT_2 = 4'd03,
-`define BIT_3 = 4'd04,
-`define BIT_4 = 4'd05,
-`define BIT_5 = 4'd07,
-`define BIT_6 = 4'd07,
-`define BIT_7 = 4'd08,
-`define STOP  = 4'd09
+enum logic [3:0] {
+    IDLE  = 4'd00;
+    BIT_0 = 4'd01;
+    BIT_1 = 4'd02;
+    BIT_2 = 4'd03;
+    BIT_3 = 4'd04;
+    BIT_4 = 4'd05;
+    BIT_5 = 4'd07;
+    BIT_6 = 4'd07;
+    BIT_7 = 4'd08;
+    STOP  = 4'd09;
+} state;
 
-reg [3:0] state;
 reg [7:0] tx_capture;
 reg [7:0] rx_capture;
 
 reg begin_shift;
 
 always @(posedge sclk) begin 
-    if (!rstn) begin 
-        state <= RX_IDLE;
-    end
     else begin
         case (state)
             IDLE: begin 
-                tx_capture <= 'd0;
+                tx_sample <= 'd0;
                 begin_shift <= 'd0;
-                if (tx_valid) begin 
+                if (!ss) begin 
                     state <= BIT_0;
                     tx_capture <= tx_data;
                     begin_shift <= 'd1;
@@ -96,7 +93,7 @@ end
 // shift out 
 always @(negedge clk) begin 
     if (begin_shift) begin 
-        mosi <= tx_capture[state - 1];
+        miso <= tx_capture[state - 1];
     end
 end
 
@@ -104,5 +101,3 @@ assign tx_done = state == STOP;
 assign ss = state == IDLE;
 assign sclk = clk;
 
-
-endmodule

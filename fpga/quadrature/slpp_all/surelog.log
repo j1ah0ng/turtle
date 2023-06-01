@@ -7,7 +7,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 VERSION: 1.59
 BUILT  : May 29 2023
-DATE   : 2023-05-29.17:37:37
+DATE   : 2023-05-30.18:12:17
 COMMAND: top.sv -DYOSYS=1 -DSYNTHESIS=1
 
 [INF:CM0023] Creating log file /Users/j1ah0ng/turtle/fpga/quadrature/slpp_all/surelog.log.

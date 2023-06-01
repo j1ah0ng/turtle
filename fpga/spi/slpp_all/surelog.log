@@ -1,0 +1,41 @@
+********************************************
+*  SURELOG SystemVerilog  Compiler/Linter  *
+********************************************
+
+Copyright (c) 2017-2023 Alain Dargelas,
+http://www.apache.org/licenses/LICENSE-2.0
+
+VERSION: 1.59
+BUILT  : May 29 2023
+DATE   : 2023-05-30.19:41:24
+COMMAND: top.sv spi_master.sv ../util/clock_divider.sv -DYOSYS=1 -DSYNTHESIS=1
+
+[INF:CM0023] Creating log file /Users/j1ah0ng/turtle/fpga/spi/slpp_all/surelog.log.
+
+[WRN:PA0205] /Users/j1ah0ng/turtle/fpga/spi/top.sv:3:1: No timescale set for "top".
+
+[WRN:PA0205] /Users/j1ah0ng/turtle/fpga/spi/spi_master.sv:1:1: No timescale set for "spi_master".
+
+[WRN:PA0205] /Users/j1ah0ng/turtle/fpga/util/clock_divider.sv:1:1: No timescale set for "clock_divider".
+
+[NTE:EL0503] /Users/j1ah0ng/turtle/fpga/spi/top.sv:3:1: Top level module "work@top".
+
+[NTE:EL0503] /Users/j1ah0ng/turtle/fpga/spi/spi_master.sv:1:1: Top level module "work@spi_master".
+
+[NTE:EL0504] Multiple top level modules in design.
+
+[NTE:EL0508] Nb Top level modules: 2.
+
+[NTE:EL0509] Max instance depth: 2.
+
+[NTE:EL0510] Nb instances: 3.
+
+[NTE:EL0511] Nb leaf instances: 0.
+
+[INF:UH0706] Creating UHDM Model...
+
+[  FATAL] : 0
+[ SYNTAX] : 0
+[  ERROR] : 0
+[WARNING] : 3
+[   NOTE] : 7

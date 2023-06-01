@@ -20,16 +20,16 @@ module spi_master (
 
 // sample on rising edge of clock, shift on falling edge.
 
-`define IDLE  = 4'd00,
-`define BIT_0 = 4'd01,
-`define BIT_1 = 4'd02,
-`define BIT_2 = 4'd03,
-`define BIT_3 = 4'd04,
-`define BIT_4 = 4'd05,
-`define BIT_5 = 4'd07,
-`define BIT_6 = 4'd07,
-`define BIT_7 = 4'd08,
-`define STOP  = 4'd09
+
+
+
+
+
+
+
+
+
+
 
 reg [3:0] state;
 reg [7:0] tx_capture;
